@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component} from 'react';
 import './App.css';
+import DownloadMap from './components/Map'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+    state = {
+        downloads: [
+            {
+                longitude: 51.505, 
+                latitude: -0.09,
+                app_id: "1234",
+                downloaded_at: Date.now()
+            },
+            {
+                longitude: 52.505, 
+                latitude: -0.012,
+                app_id: "6789",
+                downloaded_at: Date.now()
+            }
+        ]
+    }
+    render() {
+        return (
+            <DownloadMap downloads={this.state.downloads}></DownloadMap>
+        );
+    }
 }
 
 export default App;

@@ -1,6 +1,7 @@
 import React, { Component} from 'react';
 import './App.css';
 import DownloadMap from './components/Map'
+import StatsDialog from './components/Dialog'
 
 class App extends Component {
     state = {
@@ -21,7 +22,10 @@ class App extends Component {
     }
     render() {
         return (
-            <DownloadMap downloads={this.state.downloads}></DownloadMap>
+            <React.Fragment>
+                <StatsDialog downloads={this.state.downloads}></StatsDialog>
+                <DownloadMap downloads={this.state.downloads}></DownloadMap>
+            </React.Fragment>
         );
     }
 }

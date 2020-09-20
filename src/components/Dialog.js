@@ -36,9 +36,9 @@ export default function FullScreenDialog(props) {
     };
 
     const btnStyle = {
-        'position': 'fixed',
-        'z-index': '999',
-        'width': '100%'
+        position: 'fixed',
+        zIndex: '999',
+        width: '100%'
     }
     
     return (
@@ -59,7 +59,7 @@ export default function FullScreenDialog(props) {
                     </Button>
                 </Toolbar>
                 </AppBar>
-                <StatsTable downloads={props.downloads}></StatsTable>
+                <StatsTable stats={props.stats}></StatsTable>
             </Dialog>
         </div>
     );

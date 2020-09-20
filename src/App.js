@@ -5,25 +5,26 @@ import StatsDialog from './components/Dialog'
 
 class App extends Component {
     state = {
-        downloads: [
-            {
-                longitude: 51.505, 
-                latitude: -0.09,
-                app_id: "1234",
-                downloaded_at: Date.now()
-            },
-            {
-                longitude: 52.505, 
-                latitude: -0.012,
-                app_id: "6789",
-                downloaded_at: Date.now()
-            }
-        ]
+        downloads: [],
+        stats: {}
     }
+
+    componentDidMount() {
+        const getDownloads = fetch('http://localhost:3000/api/downloads')
+        .then(response => response.json())
+        .then(data => this.setState({ downloads: data.downloads }))
+
+        const getStats = fetch('http://localhost:3000/api/stats')
+        .then(response => response.json())
+        .then(data => this.setState({ stats: data.stats }))
+
+        Promise.all([getDownloads, getStats])
+    }
+
     render() {
         return (
             <React.Fragment>
-                <StatsDialog downloads={this.state.downloads}></StatsDialog>
+                <StatsDialog stats={this.state.stats}></StatsDialog>
                 <DownloadMap downloads={this.state.downloads}></DownloadMap>
             </React.Fragment>
         );

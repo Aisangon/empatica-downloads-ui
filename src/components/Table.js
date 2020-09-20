@@ -28,9 +28,17 @@ const rows = [
 
 export default function SimpleTable(props) {
     const classes = useStyles();
+
+    // function createData(country, time, age, income) {
+    //     return { country, time, age, income };
+    // }
+    
+    // const rows = props.stats.forEach((stat, i) => {
+    //     createData(stat.by_countries[i], stat.by_time[i], stat.by_age[i], stat.by_income[i])
+    // })
     
     return (
-        props.downloads ?
+        props.stats ?
             <TableContainer component={Paper}>
                 <Table className={classes.table} aria-label="simple table">
                     <TableHead>

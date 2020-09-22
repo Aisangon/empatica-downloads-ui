@@ -28,7 +28,7 @@ export default class DownloadMap extends Component {
                             return(
                                 <Marker key={`marker-${idx}`} position={markerPosition}>
                                     <Popup>
-                                        User app id: {download.app_id} <br/> downloaded on: {formattedDate}
+                                        User app id: {download.app_id} <br/> Downloaded on: {formattedDate}
                                     </Popup>
                                 </Marker>
                             )

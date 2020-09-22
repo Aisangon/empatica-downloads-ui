@@ -10,11 +10,11 @@ class App extends Component {
     }
 
     componentDidMount() {
-        const getDownloads = fetch('http://localhost:3000/api/downloads')
+        const getDownloads = fetch('http://localhost:8888/api/downloads')
         .then(response => response.json())
         .then(data => this.setState({ downloads: data.downloads }))
 
-        const getStats = fetch('http://localhost:3000/api/stats')
+        const getStats = fetch('http://localhost:8888/api/stats')
         .then(response => response.json())
         .then(data => this.setState({ stats: data.stats }))
 

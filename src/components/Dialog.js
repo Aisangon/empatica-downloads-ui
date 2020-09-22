@@ -52,7 +52,7 @@ export default function FullScreenDialog(props) {
                     <IconButton edge="start" color="inherit" onClick={handleClose} aria-label="close">
                     </IconButton>
                     <Typography variant="h6" className={classes.title}>
-                        Statistics
+                        Statistics - Number of Downloads
                     </Typography>
                     <Button autoFocus color="inherit" onClick={handleClose}>
                         Close

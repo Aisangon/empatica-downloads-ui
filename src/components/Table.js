@@ -14,29 +14,47 @@ const useStyles = makeStyles({
     },
 });
 
-function createData(name, calories, fat, carbs, protein) {
-    return { name, calories, fat, carbs, protein };
-}
-
-const rows = [
-    createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-    createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-    createData('Eclair', 262, 16.0, 24, 6.0),
-    createData('Cupcake', 305, 3.7, 67, 4.3),
-    createData('Gingerbread', 356, 16.0, 49, 3.9),
-];
-
 export default function SimpleTable(props) {
     const classes = useStyles();
 
-    // function createData(country, time, age, income) {
-    //     return { country, time, age, income };
-    // }
+    function createData(country = "", time = "", age = "", income = "") {
+        return { country, time, age, income };
+    }
+
+    console.log(props.stats)
     
-    // const rows = props.stats.forEach((stat, i) => {
-    //     createData(stat.by_countries[i], stat.by_time[i], stat.by_age[i], stat.by_income[i])
-    // })
-    
+    const rows = [
+        createData(
+            `${Object.keys(props.stats.by_countries)[0]} - ${Object.values(props.stats.by_countries)[0]}`, 
+            `${Object.keys(props.stats.by_time)[0]} - ${Object.values(props.stats.by_time)[0]}`,
+            `${Object.keys(props.stats.by_age)[0]} - ${Object.values(props.stats.by_age)[0]}`, 
+            `${Object.keys(props.stats.by_income)[0]} - ${Object.values(props.stats.by_income)[0]}`),
+        createData(
+            `${Object.keys(props.stats.by_countries)[1]} - ${Object.values(props.stats.by_countries)[1]}`, 
+            `${Object.keys(props.stats.by_time)[1]} - ${Object.values(props.stats.by_time)[1]}`,
+            `${Object.keys(props.stats.by_age)[1]} - ${Object.values(props.stats.by_age)[1]}`, 
+            `${Object.keys(props.stats.by_income)[1]} - ${Object.values(props.stats.by_income)[1]}`),
+        createData(
+            `${Object.keys(props.stats.by_countries)[2]} - ${Object.values(props.stats.by_countries)[2]}`, 
+            `${Object.keys(props.stats.by_time)[2]} - ${Object.values(props.stats.by_time)[2]}`,
+            `${Object.keys(props.stats.by_age)[2]} - ${Object.values(props.stats.by_age)[2]}`, 
+            `${Object.keys(props.stats.by_income)[2]} - ${Object.values(props.stats.by_income)[2]}`),
+        createData(
+            `${Object.keys(props.stats.by_countries)[3]} - ${Object.values(props.stats.by_countries)[3]}`, 
+            `${Object.keys(props.stats.by_time)[3]} - ${Object.values(props.stats.by_time)[3]}`,
+            `${Object.keys(props.stats.by_age)[3]} - ${Object.values(props.stats.by_age)[3]}`, 
+            `${Object.keys(props.stats.by_income)[3]} - ${Object.values(props.stats.by_income)[3]}`),
+        createData(
+            `${Object.keys(props.stats.by_countries)[4]} - ${Object.values(props.stats.by_countries)[4]}`, 
+            `${Object.keys(props.stats.by_time)[4]} - ${Object.values(props.stats.by_time)[4]}`),
+        createData(`${Object.keys(props.stats.by_countries)[5]} - ${Object.values(props.stats.by_countries)[5]}`),
+        createData(`${Object.keys(props.stats.by_countries)[6]} - ${Object.values(props.stats.by_countries)[6]}`),
+        createData(`${Object.keys(props.stats.by_countries)[7]} - ${Object.values(props.stats.by_countries)[7]}`),
+        createData(`${Object.keys(props.stats.by_countries)[8]} - ${Object.values(props.stats.by_countries)[8]}`),
+        createData(`${Object.keys(props.stats.by_countries)[9]} - ${Object.values(props.stats.by_countries)[9]}`)
+
+    ];
+
     return (
         props.stats ?
             <TableContainer component={Paper}>
@@ -45,17 +63,17 @@ export default function SimpleTable(props) {
                         <TableRow>
                             <TableCell align="center">Country</TableCell>
                             <TableCell align="center">Time of Day</TableCell>
+                            <TableCell align="center">Age</TableCell>
                             <TableCell align="center">Median Income</TableCell>
-                            <TableCell align="center">Gender</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
                         {rows.map((row) => (
                             <TableRow>
-                                <TableCell align="center">{row.calories}</TableCell>
-                                <TableCell align="center">{row.fat}</TableCell>
-                                <TableCell align="center">{row.carbs}</TableCell>
-                                <TableCell align="center">{row.protein}</TableCell>
+                                <TableCell align="center">{row.country}</TableCell>
+                                <TableCell align="center">{row.time}</TableCell>
+                                <TableCell align="center">{row.age}</TableCell>
+                                <TableCell align="center">{row.income}</TableCell>
                             </TableRow>
                         ))}
                     </TableBody>

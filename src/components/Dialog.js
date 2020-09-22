@@ -36,9 +36,9 @@ export default function FullScreenDialog(props) {
     };
 
     const btnStyle = {
-        'position': 'fixed',
-        'z-index': '999',
-        'width': '100%'
+        position: 'fixed',
+        zIndex: '999',
+        width: '100%'
     }
     
     return (
@@ -52,14 +52,14 @@ export default function FullScreenDialog(props) {
                     <IconButton edge="start" color="inherit" onClick={handleClose} aria-label="close">
                     </IconButton>
                     <Typography variant="h6" className={classes.title}>
-                        Statistics
+                        Statistics - Number of Downloads
                     </Typography>
                     <Button autoFocus color="inherit" onClick={handleClose}>
                         Close
                     </Button>
                 </Toolbar>
                 </AppBar>
-                <StatsTable downloads={props.downloads}></StatsTable>
+                <StatsTable stats={props.stats}></StatsTable>
             </Dialog>
         </div>
     );

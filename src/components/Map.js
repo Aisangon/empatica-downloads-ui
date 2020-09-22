@@ -4,9 +4,9 @@ import { Map, TileLayer, Marker, Popup } from 'react-leaflet'
 export default class DownloadMap extends Component {
 
     state = {
-        lat: 51.505,
-        lng: -0.09,
-        zoom: 13,
+        lat: 52.524,
+        lng: 13.41,
+        zoom: 5,
     }
 
     render() {
@@ -28,7 +28,7 @@ export default class DownloadMap extends Component {
                             return(
                                 <Marker key={`marker-${idx}`} position={markerPosition}>
                                     <Popup>
-                                        User app id: {download.app_id} <br/> downloaded on: {formattedDate}
+                                        User app id: {download.app_id} <br/> Downloaded on: {formattedDate}
                                     </Popup>
                                 </Marker>
                             )
